@@ -1,0 +1,31 @@
+ans = 0
+
+def good(a):
+    n = len(a)
+    up, down, bad = False, False, False
+    for i in range(1,n):
+        if (a[i]==a[i-1]):
+            bad = True
+        elif (a[i]>a[i-1]):
+            up = True
+        else:
+            down = True
+        if (abs(a[i]-a[i-1])>3):
+            bad = True
+    if up and down:
+        bad = True
+    return not bad
+    
+for _ in range(1000):
+    a = [int(i) for i in input().split()]
+    n = len(a)
+    buh = False
+    for i in range(n):
+        b = []
+        for j in range(n):
+            if (i!=j):
+                b.append(a[j])
+        buh |= good(b)
+    if (buh):
+        ans+=1
+print(ans)
