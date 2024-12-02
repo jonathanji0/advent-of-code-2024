@@ -1,0 +1,16 @@
+aa, bb = [], []
+for i in range(1000):
+	a,b = [int(i) for i in input().split()]
+	aa.append(a)
+	bb.append(b)
+aa.sort()
+bb.sort()
+ans1 = 0
+ans2 = 0
+for i in range(1000):
+	ans1 += abs(aa[i]-bb[i])
+for i in range(1000):
+	ans2 += aa[i]*bb.count(aa[i])
+
+print(ans1)
+print(ans2)
